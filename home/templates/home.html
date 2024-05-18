@@ -1,0 +1,360 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link rel="stylesheet" href="/static/css/home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+<div class="video-container">
+    <video autoplay muted loop id="video-bg">
+        <source src="/static/videos/sample.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+        <p class="p-main"><b>The Future of AI driven Fitness is here</b></p>
+        <p class="p-secondary">FoF provides affordable expert training by uniting advanced Artificial Intelligence,
+            industry leading coaches, world-class athletes, and cutting-edge research.</p>
+        <button class="get-started-btn">GET STARTED</button>
+    </div>
+</div>
+
+<div class="heading-text">
+    <h2>Hear from our valuable customers</h2>
+</div>
+
+<div class="reviews-container">
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quasi modi, neque
+            exercitationem nesciunt quos architecto animi eum labore dolorum itaque optio libero est debitis eos. Nisi
+            rem illum perferendis!</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, nihil aliquam itaque sint
+            necessitatibus atque tempore sed ex doloribus illo consectetur sequi ducimus porro totam deleniti aperiam
+            hic cum nemo!</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit cum velit cupiditate
+            nostrum numquam unde quo sed quae, enim quasi corrupti deleniti vitae at dolores ratione iste rem sint
+            ea.</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus in reiciendis
+            recusandae officiis, ipsam, sed molestias nam vitae necessitatibus vero unde architecto quaerat placeat
+            voluptatibus odit nulla dolorum, itaque incidunt.</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga quia rerum delectus.
+            Commodi explicabo nemo veritatis doloribus voluptatum dolorem porro qui ea ex? Doloremque eum,
+            necessitatibus saepe possimus quaerat animi?</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga quia rerum delectus.
+            Commodi explicabo nemo veritatis doloribus voluptatum dolorem porro qui ea ex? Doloremque eum,
+            necessitatibus saepe possimus quaerat animi?</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="review-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga quia rerum delectus.
+            Commodi explicabo nemo veritatis doloribus voluptatum dolorem porro qui ea ex? Doloremque eum,
+            necessitatibus saepe possimus quaerat animi?</p>
+        <p class="review-name">binaksl123</p>
+    </div>
+    <!-- Add more review cards as needed -->
+</div>
+
+<div class="training-potential">
+    <div class="container">
+        <div class="block-wrapper">
+            <div class="image-block">
+                <img src="/static/images/lift-weight.png" alt="Weight Lifting">
+                <div class="overlay">
+                    <img src="/static/images/overlay.png" alt="Overlay"/>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="tagline-text">
+                    <p>OUR PROMISE</p>
+                </div>
+                <div class="title">
+                    <h1>Unlock your training potential with a two week risk-free trial</h1>
+                </div>
+                <div class="description">
+                    <p>We guarantee that our platform will provide a user-friendly experience to help you achieve your
+                        training goals. Sign-up today and receive a 14-day risk free trial.</p>
+                </div>
+                <div class="actions-toolbar">
+                    <a href="#" class="primary-button">RISK FREE 14-DAY TRIAL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="analysis-section">
+    <div class="container">
+        <div class="image-block">
+            <img src="/static/images/analysis.png" alt="Analysis">
+        </div>
+    </div>
+</div>
+
+<div class="benefits-section">
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="block-one">
+                <div class="tagline-text">
+                    <p>BENEFITS</p>
+                </div>
+                <div class="title">
+                    <h2>Evolving your training to the next level has never been easier</h2>
+                </div>
+            </div>
+            <div class="block-two">
+                <div class="accordion-wrapper">
+                    <div class="accordion-tab">
+                        <p>Take the guesswork out of your training program</p>
+                    </div>
+                    <div class="accordion-content">
+                        <p>EvolveAI is based on industry leading sports science and will ensure that your training
+                            blocks are built to optimize each lift through your macro-cycle. Our training algorithm not
+                            only ensures you are doing the right combination of exercises, it has specific videos and
+                            coaching cues to help you achieve proper form and technique.</p>
+                    </div>
+                </div>
+                <div class="accordion-wrapper">
+                    <div class="accordion-tab">
+                        <p>Make sure you have the appropriate training to elevate your goals</p>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our A.I. analyzes every workout and adapts training accordingly.</p>
+                    </div>
+                </div>
+                <div class="accordion-wrapper">
+                    <div class="accordion-tab">
+                        <p>Make sure you have the appropriate training to elevate your goals</p>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our A.I. analyzes every workout and adapts training accordingly.</p>
+                    </div>
+                </div>
+                <div class="accordion-wrapper">
+                    <div class="accordion-tab">
+                        <p>Make sure you have the appropriate training to elevate your goals</p>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our A.I. analyzes every workout and adapts training accordingly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="team-section">
+    <div class="container">
+        <div class="block-info">
+            <div class="tagline-text">
+                <p>OUR TEAM</p>
+            </div>
+            <div class="title">
+                <h1>The industries’ leading coaches, athletes, sport scientists, and researchers have joined forces</h1>
+            </div>
+        </div>
+        <div class="section-padding">
+            <div class="team_slider owl-carousel">
+                <div class="item">
+                    <div class="team">
+                        <div class="image">
+                            <img src="https://assets-global.website-files.com/635d9f0eb61ccdfa65cb9584/635d9f0eb61ccd0059cb95dc_evoleai_team1.png"
+                                 alt="Team">
+                            <div class="overlay">
+                                <img src="/static/images/team_overlay.png" alt="Team Overlay">
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h2>John Doe</h2>
+                        </div>
+                        <div class="description">
+                            <p>Team description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="team">
+                        <div class="image">
+                            <img src="https://assets-global.website-files.com/635d9f0eb61ccdfa65cb9584/635d9f0eb61ccd209ecb95d1_evoleai_team6.png"
+                                 alt="Team">
+                            <div class="overlay">
+                                <img src="/static/images/team_overlay.png" alt="Team Overlay">
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h2>John Doe</h2>
+                        </div>
+                        <div class="description">
+                            <p>Team description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="team">
+                        <div class="image">
+                            <img src="https://assets-global.website-files.com/635d9f0eb61ccdfa65cb9584/635d9f0eb61ccdf142cb95db_evoleai_team3.png"
+                                 alt="Team">
+                            <div class="overlay">
+                                <img src="/static/images/team_overlay.png" alt="Team Overlay">
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h2>John Doe</h2>
+                        </div>
+                        <div class="description">
+                            <p>Team description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="team">
+                        <div class="image">
+                            <img src="https://assets-global.website-files.com/635d9f0eb61ccdfa65cb9584/635d9f0eb61ccdd70ccb95dd_evoleai_team2.png"
+                                 alt="Team">
+                            <div class="overlay">
+                                <img src="/static/images/team_overlay.png" alt="Team Overlay">
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h2>John Doe</h2>
+                        </div>
+                        <div class="description">
+                            <p>Team description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="team">
+                        <div class="image">
+                            <img src="https://assets-global.website-files.com/635d9f0eb61ccdfa65cb9584/635d9f0eb61ccd0059cb95dc_evoleai_team1.png"
+                                 alt="Team">
+                            <div class="overlay">
+                                <img src="/static/images/team_overlay.png" alt="Team Overlay">
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h2>John Doe</h2>
+                        </div>
+                        <div class="description">
+                            <p>Team description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pricing-section">
+    <div class="container">
+        <div class="pricing-section-wrapper">
+            <div class="details">
+                <div class="tagline-text">
+                    <p>Pricing</p>
+                </div>
+                <div class="title">
+                    <h1>Unlock your training potential with a two week risk-free trial</h1>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="pricing-list">
+                    <div class="list-item monthly">
+                        <div class="price-card">
+                            <div class="title">
+                                <p>MONTHLY</p>
+                            </div>
+                            <div class="price">
+                                <h3>$14.99</h3>
+                                <div class="discount">
+                                    <p>was $34.99</p>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <p>Get a 2 week free trial and pay as you go every month.</p>
+                            </div>
+                            <div class="actions-toolbar">
+                                <a href="#">GET STARTED</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item six-month">
+                        <div class="price-card">
+                            <div class="title">
+                                <p>6 MONTHS</p>
+                            </div>
+                            <div class="price">
+                                <h3>$59.99</h3>
+                                <div class="discount">
+                                    <p>was $99.99</p>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <p>Get a 2 week free trial and pay as you go every 6 month.</p>
+                            </div>
+                            <div class="actions-toolbar">
+                                <a href="#">GET STARTED</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item annually">
+                        <div class="price-card">
+                            <div class="title">
+                                <p>ANNUALLY</p>
+                            </div>
+                            <div class="price">
+                                <h3>$119.99</h3>
+                                <div class="discount">
+                                    <p>was $199.99</p>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <p>Get a 2 week free trial and pay as you go every annually.</p>
+                            </div>
+                            <div class="actions-toolbar">
+                                <a href="#">GET STARTED</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-announcement">
+    <div class="container">
+        <div class="cta-content-wrapper">
+            <div class="description">
+                <h3>Start your risk-free 14-day trial today!</h3>
+            </div>
+
+            <div class="cta-action">
+                <a href="#" class="secondary-button">RISK FREE 14-DAY TRIAL</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+{% endblock %}

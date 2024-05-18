@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Dashboard</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body class="user-dashboard">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'header.html' %}
+
+      <div class="app-main">
+        {% include 'sidebar.html' %}
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div class="row">
+              <div class="col-md-12 col-lg-6">
+                <div class="mb-3 card">
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <div class="tab-pane fade show active" id="tabs-eg-77">
+                        <div class="personal-details">
+                          <div class="block-wrapper">
+                            <div class="name">
+                              <h1>Hi, {{first_name}}!</h1>
+                            </div>
+                            <div class="description">
+                              <p>
+                                Incorporating these back exercises into your
+                                workouts can help you to improve
+                              </p>
+                            </div>
+                            <div class="fitness-details">
+                              <div class="details-wrapper">
+                                <div class="block-one">
+                                  <div class="step-count">
+                                    <i class="fa-solid fa-stopwatch"></i>
+                                    <p>Est. Time</p>
+                                    <h2>40 minutes</h2>
+                                  </div>
+                                </div>
+                                <div class="block-two">
+                                  <div class="diet-details">
+                                    <div class="protein">
+                                      <div class="title">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <p>Lunges</p>
+                                      </div>
+                                      <h2>3 reps</h2>
+                                    </div>
+                                    <div class="carbs">
+                                      <div class="title">
+                                        <i class="fas fa-running"></i>
+                                        <p>Deadlift</p>
+                                      </div>
+                                      <h2>2 reps</h2>
+                                    </div>
+                                    <div class="fat">
+                                      <div class="title">
+                                        <i class="fas fa-mountain"></i>
+                                        <p>Side Raises</p>
+                                      </div>
+                                      <h2>3 reps</h2>
+                                    </div>
+                                    <div class="water">
+                                      <div class="title">
+                                        <i class="fas fa-swimmer"></i>
+                                        <p>Plank</p>
+                                      </div>
+                                      <h2>90 sec</h2>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <h4
+                          style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-top: -15px;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          Workout Completeness (%)
+                        </h4>
+                        <div
+                          class="card mb-3 widget-chart widget-chart2 text-left w-100"
+                        >
+                          <div class="widget-chat-wrapper-outer">
+                            <div
+                              class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0"
+                            >
+                              <canvas
+                                id="monthlyMusclePerformanceChart"
+                              ></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bottom-block">
+                  <div class="mb-3 card">
+                    <div class="card-header-tab card-header">
+                      <div class="card-header-title">
+                        <i
+                          class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+                        >
+                        </i>
+                        METRICES
+                      </div>
+                      <div class="btn-actions-pane-right">
+                        <div class="nav">
+                          <!-- <a href="javascript:void(0);" class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab 1</a>
+                                        <a href="javascript:void(0);" class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab 2</a> -->
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="tab-content">
+                      <div class="tab-pane fade active show" id="tab-eg-55">
+
+                        <div class="pt-2 card-body">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="widget-content">
+                                <div class="widget-content-outer">
+                                  <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                      <div
+                                        class="widget-numbers fsize-3 text-muted"
+                                      >
+                                        63%
+                                      </div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                      <div class="text-muted opacity-6">
+                                        Accuracy
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="widget-progress-wrapper mt-1">
+                                    <div
+                                      class="progress-bar-sm progress-bar-animated-alt progress"
+                                    >
+                                      <div
+                                        class="progress-bar bg-danger"
+                                        role="progressbar"
+                                        aria-valuenow="63"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        style="width: 63%"
+                                      ></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="widget-content">
+                                <div class="widget-content-outer">
+                                  <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                      <div
+                                        class="widget-numbers fsize-3 text-muted"
+                                      >
+                                        32%
+                                      </div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                      <div class="text-muted opacity-6">
+                                        Goal Completion
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="widget-progress-wrapper mt-1">
+                                    <div
+                                      class="progress-bar-sm progress-bar-animated-alt progress"
+                                    >
+                                      <div
+                                        class="progress-bar bg-success"
+                                        role="progressbar"
+                                        aria-valuenow="32"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        style="width: 32%"
+                                      ></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="widget-content">
+                                <div class="widget-content-outer">
+                                  <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                      <div
+                                        class="widget-numbers fsize-3 text-muted"
+                                      >
+                                        71%
+                                      </div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                      <div class="text-muted opacity-6">
+                                        Stress Control
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="widget-progress-wrapper mt-1">
+                                    <div
+                                      class="progress-bar-sm progress-bar-animated-alt progress"
+                                    >
+                                      <div
+                                        class="progress-bar bg-primary"
+                                        role="progressbar"
+                                        aria-valuenow="71"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        style="width: 71%"
+                                      ></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="widget-content">
+                                <div class="widget-content-outer">
+                                  <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                      <div
+                                        class="widget-numbers fsize-3 text-muted"
+                                      >
+                                        41%
+                                      </div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                      <div class="text-muted opacity-6">
+                                        Progress
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="widget-progress-wrapper mt-1">
+                                    <div
+                                      class="progress-bar-sm progress-bar-animated-alt progress"
+                                    >
+                                      <div
+                                        class="progress-bar bg-warning"
+                                        role="progressbar"
+                                        aria-valuenow="41"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        style="width: 41%"
+                                      ></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6">
+
+
+                {% if hasFbxFile %}
+                <div class="mb-3 card">
+                  <div class="card-header-tab card-header">
+                    <div class="card-header-title">
+                      <i
+                        class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+                      >
+                      </i>
+                      Muscle Model
+                    </div>
+                    <div class="btn-actions-pane-right">
+                      <div class="nav">
+                        <a
+                          href="javascript:void(0);"
+                          class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate"
+                          >Chest
+                        </a>
+                        <a
+                          href="javascript:void(0);"
+                          class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                          >Shoulder
+                        </a>
+                        <a
+                          href="javascript:void(0);"
+                          class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                          >Abs
+                        </a>
+                        <a
+                          href="javascript:void(0);"
+                          class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                          >Legs
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab-pane fade active show" id="tab-eg-55">
+                      <div
+                        class="muscle-model my-model"
+                        id="muscle-model-container"
+                        style="
+                          border: none;
+                          width: 100%;
+                          height: 500px;
+                          overflow: hidden;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                {% else %}
+                <div class="mb-3 card d-flex align-items-center justify-content-center" style="height: 80px;">
+                  <form id="uploadForm" action="/upload-fbx/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" id="fileUploadFbx" name="fbx" accept=".fbx" onchange="submitForm()" style="display: none;">
+                    <input type="hidden" name="user_id" value="{{ user_id }}">
+                    <input type="hidden" name="user_email" value="{{ user_email }}">
+                  </form>
+                  <label for="fileUploadFbx" class="form-control" style="cursor: pointer; width: 35%; color: black;"><h4>Upload FBX File</h4></label>
+                </div>     
+                {% endif %}
+
+
+
+                
+                <div class="bottom-block">
+                  <div class="mb-3 card">
+                    <div class="card-header-tab card-header">
+                      <div class="card-header-title">
+                        <i
+                          class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+                        >
+                        </i>
+                        My Previous Work
+                      </div>
+                    </div>
+
+                    <div class="previous-workout-list px-4 pt-4">
+                      <div class="card mb-3 widget-content bg-plum-plate">
+                        <a
+                          class="widget-content-wrapper text-white"
+                          href="#"
+                          style="text-decoration: none"
+                        >
+                          <div class="widget-content-left">
+                            <div class="widget-heading">Workout 1</div>
+                            <div class="widget-subheading">Active Count</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="card mb-3 widget-content bg-plum-plate">
+                        <a
+                          class="widget-content-wrapper text-white"
+                          href="#"
+                          style="text-decoration: none"
+                        >
+                          <div class="widget-content-left">
+                            <div class="widget-heading">Workout 2</div>
+                            <div class="widget-subheading">Active Count</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="card mb-3 widget-content bg-plum-plate">
+                        <a
+                          class="widget-content-wrapper text-white"
+                          href="#"
+                          style="text-decoration: none"
+                        >
+                          <div class="widget-content-left">
+                            <div class="widget-heading">Workout 3</div>
+                            <div class="widget-subheading">Active Count</div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="card mb-3 widget-content bg-plum-plate">
+                        <a
+                          class="widget-content-wrapper text-white"
+                          href="#"
+                          style="text-decoration: none"
+                        >
+                          <div class="widget-content-left">
+                            <div class="widget-heading">Workout 4</div>
+                            <div class="widget-subheading">Active Count</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+
+    <script>
+      var user_id = "{{ user_id }}";
+      var user_email = "{{ user_email }}";
+      function submitForm() {
+          document.getElementById("uploadForm").submit();
+      }
+
+    </script>
+
+    <script src="/static/js/user_dashboard.js"></script>
+    <script src="/static/js/user.js"></script>
+  </body>
+</html>

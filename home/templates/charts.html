@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Scatter Plot for Joints</title>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div id="scatterPlot" style="width: 800px; height: 600px;"></div>
+
+  <script>
+    // Sample 3D joint data (replace this with your actual dataset)
+    const jointsData = [
+      { x: 0, y: 0, z: 0 },   // Joint 1
+      { x: 1, y: 1, z: 1 },   // Joint 2
+      { x: -1, y: 1, z: 1 },  // Joint 3
+      { x: 0, y: 2, z: -1 },  // Joint 4
+      { x: 1, y: 0, z: 2 },   // Joint 5
+      { x: -2, y: -1, z: 1 }, // Joint 6
+      { x: 2, y: -2, z: -1 }, // Joint 7
+      { x: -1, y: -1, z: -2 },// Joint 8
+      { x: 1, y: -1, z: 0 },  // Joint 9
+      { x: -1, y: 0, z: -1 }, // Joint 10
+    ];
+
+    // Extract X, Y, and Z coordinates from the jointsData
+    const xCoordinates = jointsData.map(joint => joint.x);
+    const yCoordinates = jointsData.map(joint => joint.y);
+    const zCoordinates = jointsData.map(joint => joint.z);
+
+    // Plotly trace for the 3D scatter plot
+    const trace = {
+      x: xCoordinates,
+      y: yCoordinates,
+      z: zCoordinates,
+      mode: 'markers',
+      type: 'scatter3d',
+      marker: {
+        size: 5,
+        opacity: 0.8,
+        color: 'rgb(23, 190, 207)'
+      }
+    };
+
+    // Plotly layout for the 3D scatter plot
+    const layout = {
+      margin: {
+        l: 0,
+        r: 0,
+        b: 0,
+        t: 0
+      }
+    };
+
+    // Create the 3D scatter plot
+    Plotly.newPlot('scatterPlot', [trace], layout);
+  </script>
+</body>
+</html>

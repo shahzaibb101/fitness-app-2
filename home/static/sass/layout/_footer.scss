@@ -1,0 +1,147 @@
+footer {
+  background-color: #060c21;
+  padding: 5rem 0;
+
+  .page-footer {
+    display: flex;
+    flex-wrap: wrap;
+    @include breakpoint(tablet) {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .block-one {
+      @include breakpoint(tablet) {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .logo {
+        font-family: "Audiowide", sans-serif;
+        color: $color-1;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        ul {
+          @include flex-c;
+          flex-wrap: wrap;
+          margin: -12px 0 0 -12px;
+          list-style: none;
+          padding: 0;
+          @include breakpoint(tablet) {
+            justify-content: center;
+          }
+
+          li {
+            padding: 12px 0 0 12px;
+
+            a {
+              @include flex-c-c;
+              background-color: #f2f1ff;
+              border-radius: 8px;
+              transition: all 0.3s ease;
+              min-width: 36px;
+              min-height: 36px;
+
+              svg {
+                width: 18px;
+                height: 18px;
+              }
+
+              &:hover {
+                transform: scale(.92);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .block-two {
+      margin-left: auto;
+      @include breakpoint(tablet) {
+        margin-left: 0;
+      }
+
+      .footer-links {
+        margin-bottom: 1rem;
+
+        ul {
+          margin: -16px 0 0 -16px;
+
+          li {
+            padding: 16px 0 0 16px;
+
+            a {
+              opacity: .72;
+              color: #fff;
+              text-transform: none;
+              font-size: .875rem;
+              text-decoration: none;
+              transition: all .2s;
+            }
+          }
+        }
+      }
+
+      .available-list {
+        margin-bottom: 2rem;
+
+        ul {
+          margin: -30px 0 0 -30px;
+
+          li {
+            padding: 30px 0 0 30px;
+
+            a {
+              img {
+                display: block;
+                width: 100%;
+                max-width: 150px;
+                border: 2px solid $color-1;
+                border-radius: 12px;
+              }
+            }
+          }
+        }
+      }
+
+      .policy-links {
+        a {
+          color: #3068ff;
+          margin-left: 1.5rem;
+          margin-right: 0;
+          font-size: .875rem;
+          text-decoration: none;
+        }
+      }
+
+      ul {
+        @include flex-c;
+        list-style: none;
+        justify-content: flex-end;
+        padding: 0;
+        flex-wrap: wrap;
+
+        @include breakpoint(tablet) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    color: $color-1;
+    margin-top: 1rem;
+    font-size: .875rem;
+    @include breakpoint(tablet) {
+      text-align: center;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

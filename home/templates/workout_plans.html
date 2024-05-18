@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Workout Plan</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body class="workout-plan">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'trainer_header.html' %}
+
+      <div class="app-main">
+        {% include 'trainer_sidebar.html' %}
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div class="block__wrapper">
+              <div class="block__one">
+                <div class="block__content" style="margin-bottom: 50px;">
+                  <div class="block__title">
+                    <p>Recommendation from System</p>
+                  </div>
+
+                  <div class="block__workout">
+                    <div class="workout__list">
+                      {% for rp in recommedned_plans %}
+                      <div class="workout__list-item {% if forloop.counter > 2 %}hidden{% endif %}">
+                        <div
+                          class="card workout__content widget-content bg-plum-plate"
+                        >
+                          <div class="label">for {{rp.name}}</div>
+                          <div class="workout__plan">
+                            <ul>
+                              <li>{{rp.recommendation}}</li>
+                            </ul>
+                          </div>
+                          <div class="workout__time">
+                            <p>Estimated Time: {{rp.est_time}}</p>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                    <div class="block__action">
+                      <button id="toggle-view" class="view-button">View All</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block__two">
+                <div class="block__content">
+                  <div class="block__title">
+                    <p>Active Workout Plans</p>
+                  </div>
+
+                  <div class="block__diet">
+                    <div class="diet__list">
+                      {% for ap in active_plans %}
+                      <div class="diet__list-item {% if forloop.counter > 2 %}hidden{% endif %}">
+                        <div
+                          class="card diet__content widget-content bg-plum-plate"
+                        >
+                          <div class="label">for {{ap.name}}</div>
+                          <div class="diet__plan">
+                            <ul>
+                              <li>{{ap.rec1}}</li>
+                              <li>{{ap.rec2}}</li>
+                              <li>{{ap.rec3}}</li>
+                              <li>{{ap.rec4}}</li>
+                            </ul>
+                          </div>
+                          <p>Estimated Time: {{ap.est_time}}</p>
+                        </div>
+
+                      </div>
+                      {% endfor %}
+                    </div>
+                    <div class="block__action" style="margin-bottom: 50px;">
+                      <button id="toggle-view-2" class="view-button">View All</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/workout_plan.js"></script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const toggleButton = document.getElementById("toggle-view");
+        const workoutList = document.querySelector(".workout__list");
+        const toggleButton2 = document.getElementById("toggle-view-2");
+        const workoutList2 = document.querySelector(".diet__list");
+
+
+        toggleButton.addEventListener("click", function() {
+          const items = workoutList.querySelectorAll(".workout__list-item.hidden");
+
+          if (items.length > 0) {
+            items.forEach(item => {
+              item.classList.remove("hidden");
+            });
+            toggleButton.textContent = "Hide";
+          } else {
+            const itemsToShow = workoutList.querySelectorAll(".workout__list-item:nth-child(n + 3)");
+
+            itemsToShow.forEach(item => {
+              item.classList.add("hidden");
+            });
+            toggleButton.textContent = "View All";
+          }
+        });
+
+        toggleButton2.addEventListener("click", function() {
+          const items = workoutList2.querySelectorAll(".diet__list-item.hidden");
+
+          if (items.length > 0) {
+            items.forEach(item => {
+              item.classList.remove("hidden");
+            });
+            toggleButton2.textContent = "Hide";
+          } else {
+            const itemsToShow = workoutList2.querySelectorAll(".diet__list-item:nth-child(n + 3)");
+
+            itemsToShow.forEach(item => {
+              item.classList.add("hidden");
+            });
+            toggleButton2.textContent = "View All";
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

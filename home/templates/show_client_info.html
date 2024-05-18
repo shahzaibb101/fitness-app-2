@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Active Clients</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body class="active_client">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'trainer_header.html' %}
+
+      <div class="app-main">
+        {% include 'trainer_sidebar.html' %}
+
+        <div class="app-main__outer">
+
+          <div class="row mt-3 ml-4">
+            <button style="border: none; background: none; cursor: pointer;" onclick="goBack()">
+              <i style="font-size: 1.5em;" class="fas fa-arrow-left"></i>
+            </button>
+          </div>
+            
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                    <div class="card ml-4 my-3">
+                        <div class="card-header-tab card-header">
+                          <div class="card-header-title">
+                            <i
+                              class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+                            >
+                            </i>
+                            Muscle Model
+                          </div>
+                          <div class="btn-actions-pane-right">
+                            <div class="nav">
+                              <a
+                                href="javascript:void(0);"
+                                class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate"
+                                >Chest
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                                >Shoulder
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                                >Abs
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="ml-1 btn-pill btn-wide border-0 btn-transition btn btn-outline-alternate second-tab-toggle-alt"
+                                >Legs
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-content">
+                          <div class="tab-pane fade active show" id="tab-eg-55">
+                            <div
+                              class="muscle-model my-model"
+                              id="muscle-model-container"
+                              style="
+                                border: none;
+                                width: 100%;
+                                height: 500px;
+                                overflow: hidden;
+                              "
+                            ></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-6">
+                    <div class="card mr-4 my-3">
+                        <div class="card-header-tab card-header">
+                          <div class="card-header-title">
+                            <i
+                              class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+                            >
+                            </i>
+                            C3D DATA POINTS
+                          </div>
+                          <div class="btn-actions-pane-right">
+                            <div class="nav">
+                              <!-- <a href="javascript:void(0);" class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab 1</a>
+                                            <a href="javascript:void(0);" class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab 2</a> -->
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="tab-content" style="height: 500px;">
+                          <div class="tab-pane fade active show" id="tab-eg-55">
+    
+    
+                            <div class="widget-chart p-3">
+                              <div>
+                                <div id="scatterPlot"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-lg-6">
+                <div class="ml-4 my-3">
+                  <h4>Active Workout Plan</h4>
+
+                  <div class="mb-3 card d-flex my-2" style="height: 300px; border-radius: 10px; border-color: #650aff; border-width: 1px;">
+                    <div class="w-100 upper-part d-flex align-items-center" style="height: 50px;">
+                        <div class="mx-4">
+                            <h6><b>Est. Time (45 mins)</b></h6>
+                        </div>
+                    </div>
+                    <div class="m-4" style="min-height: 170px;">
+                        <h5 class="inner-item">- Deadlift <b>3 reps (12 each)</b></h5>
+                        <h5 class="inner-item">- Flying Dumbell <b>3 reps (12 each)</b></h5>
+                        <h5 class="inner-item">- Side Raises <b>4 reps (8 each)</b></h5>
+                        <h5 class="inner-item">- Treadmill <b>300 seconds</b></h5>
+                    </div>
+                    <div class="d-flex flex-row" style="height: 50px;">
+                        <div style="border-top: 1px solid #650aff; border-right: 1px solid #650aff;" class="w-50 d-flex justify-content-center align-items-center">
+                            <a href="#" style="text-decoration: none; color: #650aff;"><b>Modify Plan</b></a>
+                        </div>
+                        <div style="border-top: 1px solid #650aff;" class="w-50 d-flex justify-content-center align-items-center">
+                            <a href="#" style="text-decoration: none; color: #650aff;"><b>Generate from AI</b></a>
+                        </div>
+                    </div>
+                </div>    
+              </div>
+                
+              </div>
+            </div>
+            
+
+
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/active_client.js"></script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+
+    <script>
+        var user_id = "{{ user_id }}";
+        var user_email = "{{ user_email }}";
+
+        function goBack() {
+          // Add your go back functionality here
+          window.history.back();
+        }
+  
+    </script>
+
+    <script src="/static/js/modelandc3d.js"></script>
+  </body>
+</html>

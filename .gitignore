@@ -1,0 +1,8 @@
+.idea
+
+home/static/node_modules
+home/config.py
+home/__pycache__
+fof/__pycache__
+migrations/__pycache__
+__pycache__

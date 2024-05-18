@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Chart</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Include Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body class="user-charts">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'trainer_header.html' %}
+
+      <div class="app-main">
+        {% include 'trainer_sidebar.html' %}
+
+        <!-- Main content -->
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div
+              class="goal-achieved-row d-flex flex-wrap justify-content-center"
+            >
+              <div class="goal-achieved-chart-container">
+                <div class="goal-achieved-chart-content">
+                  <div class="goal-achieved-title">Performance</div>
+                  <div class="line-graphs-items">
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        July
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="julyMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        August
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="augMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        September
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="sepMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="goal-achieved-chart-container">
+                <div class="goal-achieved-chart-content">
+                  <div class="goal-achieved-title">Goals Achieved</div>
+                  <div
+                    id="weeklyAchievedActivity"
+                    class="goal-achieved-bar-container"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="goal-achieved-chart-container">
+                <div class="goal-achieved-chart-content">
+                  <div class="goal-achieved-title">Accuracy</div>
+                  <div class="accuracy-chart">
+                    <div id="goalCircle" class="accuracy-circle">
+                      <div class="accuracy-circle-inner"></div>
+                    </div>
+
+                    <div class="accuracy-circle-value">
+                      <div class="accuracy-circle-value-text">
+                        Goal completion
+                      </div>
+                      <div id="weeklyAchievedGoalText">0%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="goal-achieved-chart-container">
+                <div class="goal-achieved-chart-content">
+                  <div class="goal-achieved-title">Progress</div>
+                  <div class="line-graphs-items">
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        October
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="octMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        November
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="novMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+
+                    <div class="line-graphs-item">
+                      <div class="line-garph-title">
+                        December
+                        <span> 2023 </span>
+                      </div>
+                      <canvas
+                        class="decMonthLineGraph"
+                        width="400"
+                        height="200"
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+    <script>
+      const weeklyAchievedChartDataUrl =
+        "{% url 'weekly_achieved_chart_data' %}";
+      const julyMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=7 %}";
+      const augMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=8 %}";
+      const sepMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=9 %}";
+      const octMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=10 %}";
+      const novMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=11 %}";
+      const decMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=12 %}";
+    </script>
+    <script src="/static/js/chart.js"></script>
+    <script src="/static/js/user_dashboard.js"></script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+  </body>
+</html>

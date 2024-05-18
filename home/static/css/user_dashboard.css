@@ -1,0 +1,68 @@
+body {
+    background-color: #121212;
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+.sidebar {
+    color: #fff;
+    background-color: #003559;
+    /* border: 1px solid #003559; */
+    min-height: 100vh;
+    max-width: 10vh;
+    /* margin-left: 0; */
+}
+
+.updates {
+    background-color: #121212;
+    height: 500px;
+}
+  
+.muscle-model {
+    height: 500px; /* Adjust to your preference */
+    /* background-color: #fff; */
+    /* border: 10px solid #dee2e6; */
+    /* overflow: hidden; */
+}
+
+.muscle-menu {
+    position: fixed;
+    color: white;
+}
+
+.muscle-menu a {
+    color: white;
+}
+
+.nav-pills .nav-link.active {
+    position: relative;
+    background-color: #003559;
+}
+
+.nav-pills .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px; /* Adjust this value to control the distance from the text */
+    width: 100%;
+    left: 0;
+    height: 4px; /* Height of the black dash */
+    background-color: #121212; /* Color of the dash */
+}
+
+.nav-link .fas {
+    color: #121212;
+    font-size: 26px;
+    margin-top: 40px;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+
+  
+  /* You would add more custom styles here to match the prototype */
+  

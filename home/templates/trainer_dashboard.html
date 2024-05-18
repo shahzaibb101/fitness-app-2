@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Dashboard</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body class="trainer-dashboard">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'trainer_header.html' %}
+
+      <div class="app-main">
+        {% include 'trainer_sidebar.html' %}
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div class="block__wrapper">
+              <div class="block__one">
+                <div class="block__content">
+                  <div class="card upper-block">
+                    <div class="block__clients">
+                      <div class="col-md-6">
+                        <div class="card mb-3 widget-content bg-plum-plate">
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="/active_client/"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div class="widget-heading">Clients</div>
+                              <div class="widget-subheading">Active Count</div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="widget-numbers text-white">
+                                <span>4</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card mb-3 widget-content bg-arielle-smile">
+                          <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                              <div class="widget-heading">Clients</div>
+                              <div class="widget-subheading">Total Count</div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="widget-numbers text-white">
+                                <span>56</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="block__appointments">
+                      <div class="title">
+                        <p>My Appointments</p>
+                        <div class="add">+</div>
+                      </div>
+
+                      <div class="appointments__list">
+                        <div
+                          class="card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Training
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>10:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Nutrition
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>13:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="list__item hidden card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Nutrition
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>13:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="list__item hidden card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Nutrition
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>13:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="list__item hidden card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Nutrition
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>13:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="list__item hidden card mb-2 widget-content bg-midnight-bloom"
+                          style="height: 50px"
+                        >
+                          <a
+                            class="widget-content-wrapper text-white"
+                            href="#"
+                            style="text-decoration: none"
+                          >
+                            <div class="widget-content-left">
+                              <div
+                                class="widget-heading"
+                                style="font-size: medium"
+                              >
+                                Nutrition
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div
+                                class="widget-numbers text-white"
+                                style="font-size: small"
+                              >
+                                <span>13:00</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="view-all">View All</div>
+                    </div>
+                  </div>
+
+                  <div class="card bottom-block">
+                    <div class="block__performance-graph">
+                      <div class="goal-achieved-chart-container">
+                        <div class="goal-achieved-chart-content">
+                          <div class="goal-achieved-title">Performance</div>
+                          <div class="line-graphs-items">
+                            <div class="line-graphs-item">
+                              <div class="line-garph-title">
+                                July
+                                <span> 2023 </span>
+                              </div>
+                              <canvas
+                                class="julyMonthLineGraph"
+                                width="400"
+                                height="200"
+                              ></canvas>
+                            </div>
+
+                            <div class="line-graphs-item">
+                              <div class="line-garph-title">
+                                August
+                                <span> 2023 </span>
+                              </div>
+                              <canvas
+                                class="augMonthLineGraph"
+                                width="400"
+                                height="200"
+                              ></canvas>
+                            </div>
+
+                            <div class="line-graphs-item">
+                              <div class="line-garph-title">
+                                September
+                                <span> 2023 </span>
+                              </div>
+                              <canvas
+                                class="sepMonthLineGraph"
+                                width="400"
+                                height="200"
+                              ></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="block__two">
+                <div class="block__content">
+                  <div class="card upper-block">
+                    <div class="block__top-clients">
+                      <div class="title"><p>Top Clients</p></div>
+
+                      <div class="client__list">
+                        <div class="top-clients-list">
+                          {% for user in my_users %}
+                          <div class="top-clients-list-item">
+                            <div class="client-content">
+                              <div class="client-image">
+                                <img src="{% url 'serve_image' user_id=user.id %}" alt="Client Image" style="height: 50px; width: 50px; border: 2px solid #650aff; border-radius: 50%;">
+                              </div>
+                              <div class="client-info">
+                                <div class="client-name">{{user.name}}</div>
+                              </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card bottom-block">
+                    <div class="block__client-week">
+                      <div class="content">
+                        <div class="client-image">
+                          <img src="{% url 'serve_image' user_id=top_client.id %}" alt="Client Image" style="height: 150px; width: 150px; border: 2px solid #650aff; border-radius: 50%;">
+                        </div>
+                        <div class="client-name">
+                          <p><b>{{top_client.name}}</b></p>
+                        </div>
+                        <div class="title">
+                          <p>Client of the Week</p>
+                        </div>
+                        <div class="counter">
+                          <p>3000</p>
+                        </div>
+                        <div class="counter-text">
+                          <p>Calories Burned</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/trainer_dashboard.js"></script>
+    <script>
+      const weeklyAchievedChartDataUrl =
+        "{% url 'weekly_achieved_chart_data' %}";
+      const julyMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=7 %}";
+      const augMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=8 %}";
+      const sepMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=9 %}";
+      const octMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=10 %}";
+      const novMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=11 %}";
+      const decMonthGraphDataUrl =
+        "{% url 'monthly_line_graph_data' year=2023 month=12 %}";
+    </script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+.navbar-collapse {
+  @include breakpoint(mobile) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    z-index: 998;
+    background: $color-1;
+    padding: 0 10px;
+  }
+
+  &.show {
+    @include breakpoint(mobile) {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.navbar-toggler {
+  @include breakpoint(mobile) {
+    z-index: 999;
+  }
+}
+
+.my-nav .navbar-nav .nav-link {
+  @include breakpoint(mobile) {
+    color: $color-2 !important;
+  }
+}

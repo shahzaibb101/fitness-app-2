@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/static/css/signup.css">
+
+<style>
+</style>
+
+{% extends "base.html" %}
+{% block start %}
+
+<div class="sign-up">
+    <div class="container">
+        <div class="block-wrapper">
+            <div class="content-block" style="margin-top: -70px;">
+              <a href="/sign-up/" class="form-control d-flex justify-content-center" style="border: 2px solid #3068ff; text-decoration: none;">SIGN UP AS USER</a>
+                <div class="page-title">
+                    <h1>Create Account</h1>
+                </div>
+                <div class="description">
+                    <p>Level up your fitness journey now with FoF.</p>
+                </div>
+                  
+                <form action="/signup-trainer/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">
+                            <input type="name" name="name" class="form-control my-input" id="name"
+                                   placeholder="* Enter your name" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            <input type="email" name="email" class="form-control my-input" id="email"
+                                   placeholder="* Enter your email" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="cv">
+                            <label class="input-group-text form-control" for="inputGroupFile01">Upload CV</label>
+                            <input type="file" class="form-control" id="inputGroupFile01" name="cv" style="display: none;" accept="application/pdf" required>
+                        </label>
+                    </div>
+                    <div class="form-group choice">
+                        <input type="checkbox" name="policy" id="policy" required>
+                        <label for="policy">I agree to the <a href="#">Terms of Use</a>, <a href="#">Health
+                            Disclaimer</a>, and
+                            <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <input type="submit" value="Submit" class="form-control">
+                    <p><span>Already a member?</span><a href="/sign-in">Sign in</a></p>
+                </form>
+            </div>
+            <div class="image-block">
+                <img src="/static/images/phone.webp" alt="Phone">
+                <div class="overlay">
+                    <img src="/static/images/account-overlay.png" alt="Overlay">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

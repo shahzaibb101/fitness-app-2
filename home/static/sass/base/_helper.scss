@@ -1,0 +1,19 @@
+@mixin flex-c {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-c-c {
+  @include flex-c;
+  justify-content: center;
+}
+
+@mixin flex-c-sb {
+  @include flex-c;
+  justify-content: space-between;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Active Clients</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body class="active_client">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'trainer_header.html' %}
+
+      <div class="app-main">
+        {% include 'trainer_sidebar.html' %}
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div class="block__wrapper">
+              <div class="block__one">
+                <div class="title">
+                  <p>Active Clients</p>
+                </div>
+                <div class="block__search">
+                  <form action="">
+                    <div class="field">
+                      <input
+                        type="search"
+                        name="search"
+                        id="search_clients"
+                        placeholder="Search"
+                      />
+                    </div>
+                    <div class="field__action">
+                      <input type="submit" value="Search" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="block__two">
+
+                <div class="client__list">
+                  {% for user in my_users %}
+                  <div class="list__item {% if forloop.counter > 3 %}hidden{% endif %}">
+                    <div class="client__content">
+                      <div class="client__image">
+                        <img src="{% url 'serve_image' user_id=user.id %}" alt="Client Image" style="height: 50px; width: 50px; border: 2px solid #650aff; border-radius: 50%;">
+                      </div>
+                      <div class="client__name"><p>{{ user.name }}</p></div>
+                      <div class="client__email"><p>{{ user.email }}</p></div>
+                      <div class="client__action">
+                        <a href="/show-client-info/?user_email={{user.email}}">View</a>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <button class="toggle-view view-button">View All</button>
+
+
+
+
+              </div>
+              <div class="block__three">
+                <div class="title"><p>Client Requests</p></div>
+
+                <div class="block__title"><p>Open Requests</p></div>
+                <div class="request__open">
+                  {% for req in open_req %}
+                  <table class="mb-4">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created On</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-column="Name">{{req.name}}</td>
+                        <td data-column="Description">{{req.description}}</td>
+                        <td data-column="Created On">{{req.creation_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {% endfor %}
+                </div>
+
+                <div class="block__title"><p>Working on it</p></div>
+                <div class="request__to-do">
+                  {% for req in working_req %}
+                  <table class="mb-4">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created On</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-column="Name">{{req.name}}</td>
+                        <td data-column="Description">{{req.description}}</td>
+                        <td data-column="Created On">{{req.creation_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {% endfor %}
+                </div>
+
+                <div class="block__title"><p>Completed</p></div>
+                <div class="request__completed">
+                  {% for req in completed_req %}
+                  <table class="mb-4">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created On</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-column="Name">{{req.name}}</td>
+                        <td data-column="Description">{{req.description}}</td>
+                        <td data-column="Created On">{{req.creation_date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/active_client.js"></script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+
+    <script>
+      var user_id = "{{ user_id }}";
+      var user_email = "{{ user_email }}";
+      
+      document.addEventListener("DOMContentLoaded", function() {
+        const toggleButton = document.querySelector(".toggle-view");
+        const hiddenItems = document.querySelectorAll(".list__item.hidden");
+
+        toggleButton.addEventListener("click", function() {
+          if (toggleButton.textContent === "View All") {
+            hiddenItems.forEach(function(item) {
+              item.classList.remove("hidden");
+            });
+            toggleButton.textContent = "Hide";
+          } else {
+            const allItems = document.querySelectorAll(".list__item");
+            allItems.forEach(function(item, index) {
+              if (index >= 3) {
+                item.classList.add("hidden");
+              }
+            });
+            toggleButton.textContent = "View All";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

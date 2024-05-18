@@ -1,0 +1,50 @@
+.owl-carousel {
+  touch-action: manipulation;
+}
+
+.owl-nav {
+  [class*="owl-"] {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 35px;
+    z-index: 10;
+    @include flex-c-c;
+    background: transparent !important;
+    border: 1px solid $color-1 !important;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+      width: 26px;
+      height: 26px;
+      top: 26px;
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      font-weight: 400;
+      color: $color-1;
+      line-height: 0.5;
+      display: contents;
+
+      @media (max-width: 767px) {
+        font-size: 30px;
+        line-height: 0.6;
+      }
+    }
+
+    &.owl-prev {
+      left: 50px;
+    }
+
+    // animation of next-btn
+    &.owl-next {
+      right: 50px;
+    }
+  }
+}

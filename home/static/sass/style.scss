@@ -1,0 +1,27 @@
+// Import base
+@import "base/variables";
+@import "base/breakpoints";
+@import "base/helper";
+@import "base/base";
+@import "base/nav-carousel";
+
+// Import components
+@import "components/button";
+@import "components/form";
+
+// Import layout
+@import "layout/header";
+@import "layout/footer";
+
+// Import pages
+@import "pages/home";
+@import "pages/user_dashboard";
+@import "pages/account";
+@import "pages/activity";
+@import "pages/chart";
+@import "pages/chat";
+@import "pages/settings";
+@import "pages/trainer_dashboard";
+@import "pages/active_clients";
+@import "pages/workout_plan";
+@import "pages/trainer_chat";

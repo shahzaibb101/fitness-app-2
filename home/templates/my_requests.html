@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>My Workout Plan</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <style>
+        .upper-part {
+            height: 50px; 
+            background-image: linear-gradient(91deg, #650aff, #3068ff); 
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px;
+            color: white;
+        }
+        .inner-item {
+            margin-bottom: 15px;
+        }
+
+        .my-card {
+          border: 1px solid #650aff;
+        }
+    </style>
+
+  </head>
+
+  <body class="my_workout_plan">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'header.html' %}
+
+      <div class="app-main">
+        {% include 'sidebar.html' %}
+
+        {% if trainer_id == 'null' %}
+        <div class="app-main__outer d-flex align-items-center justify-content-center">
+            <div class="my-card mb-3 card d-flex align-items-center justify-content-center" style="height: 180px; width: 40%; border-radius: 10px;">
+                <h6>Hire a Trainer to Manage Requests</h6>
+            </div>     
+        </div>
+        {% else %}
+        <div class="app-main__outer d-flex m-5">
+            <div id="new-request" class="my-card mb-3 card d-flex align-items-center justify-content-center" style="height: 120px; border-radius: 10px; cursor: pointer;">
+                <a
+                    class="sidebar"
+                    style="
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    font-size: x-large;
+                    text-decoration: none;
+                    color: #47523e;
+                    "
+                >
+                    <i class="metismenu-icon fas fa-upload mx-2"></i>
+                    New Request
+                </a>
+            </div> 
+
+            <h2 style="color: #47523e;">My Requests</h2>
+
+            <div class="active_client">
+              <div class="block__three">
+                <div class="request__to-do">
+                  {% for req in my_req %}
+                  <table class="mb-4">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created On</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-column="Name">{{req.name}}</td>
+                        <td data-column="Description">{{req.description}}</td>
+                        <td data-column="Created On">{{req.creation_date}}</td>
+                        <td data-column="Status">{{req.status}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {% endfor %}
+
+                  <!-- <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created On</th>
+                        <th>Client ID</th>
+                        <th>Files</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-column="Name">1</td>
+                        <td data-column="Description">2</td>
+                        <td data-column="Created On">3</td>
+                        <td data-column="Client ID">4</td>
+                        <td data-column="Files">5</td>
+                        <td data-column="Type">6</td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+
+                </div>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+
+    <script>
+      var user_id = "{{ user_id }}";
+      var user_email = "{{ user_email }}";
+
+
+      const newRequestDiv = document.getElementById('new-request');
+
+      newRequestDiv.addEventListener('click', function() {
+        window.location.href = '/new-requests/';
+      });
+    </script>
+  </body>
+</html>

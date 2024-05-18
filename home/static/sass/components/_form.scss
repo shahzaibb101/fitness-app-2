@@ -1,0 +1,37 @@
+.form-control {
+  background-color: transparent;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  min-height: 45px;
+  margin-bottom: 1rem;
+  border: 1px solid hsla(0, 0%, 100%, .24);
+  border-radius: 6px;
+  color: #fff;
+
+  &:focus,
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.form-group {
+  &.choice {
+    display: flex;
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+      accent-color: #04e2e7;
+      width: 25px;
+      height: 25px;
+      border-color: #04e2e7;
+      background-color: transparent;
+    }
+  }
+
+  label {
+    color: $color-1;
+  }
+}

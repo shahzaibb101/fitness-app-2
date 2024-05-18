@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User Settings</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body class="user-settings">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'header.html' %}
+
+      <div class="app-main">
+        {% include 'sidebar.html' %}
+
+        <div class="app-main__outer">
+          <div class="app-main__inner">
+            <div
+              class="user-settings-row d-flex flex-wrap justify-content-center"
+            >
+              <div class="user-settings-container">
+                <div class="settings-block left-block">
+                  <div class="settings-block-title">General Settings</div>
+                  <hr />
+
+                  <div class="tabs">
+                    <button
+                      class="tablinks active"
+                      onclick="opensettings(event, 'setting1')"
+                    >
+                      <i class="fas fa-user"></i>
+                      Account Settings
+                    </button>
+
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting2')"
+                    >
+                      <i class="fas fa-envelope"></i>
+                      My Requests
+                    </button>
+
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting3')"
+                    >
+                      <i class="fas fa-credit-card"></i>
+                      Payments
+                    </button>
+                  </div>
+
+                  <hr />
+
+                  <div class="settings-block-title">Security Settings</div>
+
+                  <div class="tabs">
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting4')"
+                    >
+                      <i class="fas fa-lock"></i>
+                      Two Factor Authentication
+                    </button>
+
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting5')"
+                    >
+                      <i class="fas fa-key"></i>
+                      Password
+                    </button>
+                  </div>
+
+                  <hr />
+
+                  <div class="settings-block-title">Support</div>
+
+                  <div class="tabs">
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting6')"
+                    >
+                      <i class="fas fa-user"></i>
+                      Contacts
+                    </button>
+
+                    <button
+                      class="tablinks"
+                      onclick="opensettings(event, 'setting7')"
+                    >
+                      <i class="fas fa-credit-card"></i>
+                      Subscriptions
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="user-settings-container">
+                <div class="settings-block right-block">
+                  <div
+                    id="setting1"
+                    class="settings-container"
+                    style="display: block"
+                  >
+                    <div class="settings-block-title">Account Settings</div>
+                    <hr />
+
+                    <form class="account-settings-form">
+                      <div class="input-group">
+                        <div class="input-field">
+                          <label for="name">Name</label>
+
+                          <input
+                            type="text"
+                            name="name"
+                            id="name-input"
+                            class="edit-input"
+                            placeholder="Name"
+                          />
+                          <i
+                            class="fas fa-edit edit-icon"
+                            onclick="editField(this)"
+                          ></i>
+                        </div>
+
+                        <i class="fas fa-user"></i>
+                      </div>
+
+                      <div class="input-group">
+                        <div class="input-field">
+                          <label for="email">Email</label>
+
+                          <input
+                            type="email"
+                            name="email"
+                            id="email-input"
+                            placeholder="Email"
+                            onkeyup="validateEmail()"
+                          />
+                        </div>
+
+                        <i
+                          class="fas fa-check-circle icon valid-icon"
+                          id="email-valid"
+                        ></i>
+
+                        <i
+                          class="fas fa-times-circle icon invalid-icon"
+                          id="email-invalid"
+                        ></i>
+                      </div>
+
+                      <div class="input-group">
+                        <div class="input-field">
+                          <label for="phone">Phone Number</label>
+
+                          <input
+                            type="tel"
+                            name="phone"
+                            id="phone-input"
+                            placeholder="Phone Number"
+                            class="edit-input"
+                            onkeyup="validatePhoneNumber()"
+                          />
+                          <i
+                            class="fas fa-edit edit-icon"
+                            onclick="editField(this)"
+                          ></i>
+                        </div>
+
+                        <i
+                          class="fas fa-check-circle icon valid-icon"
+                          id="phone-valid"
+                        ></i>
+                        <i
+                          class="fas fa-times-circle icon invalid-icon"
+                          id="phone-invalid"
+                        ></i>
+                      </div>
+
+                      <div class="input-group">
+                        <div class="input-field">
+                          <label for="password">Password</label>
+
+                          <input
+                            type="password"
+                            name="password"
+                            id="password-field"
+                            placeholder="Password"
+                          />
+                          <i
+                            class="fas fa-eye-slash eye-icon"
+                            onclick="togglePasswordVisibility()"
+                          ></i>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/user_dashboard.js"></script>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+    <script src="/static/js/settings.js"></script>
+  </body>
+</html>

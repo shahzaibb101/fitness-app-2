@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Rehab Status</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="This is an example dashboard created using build-in elements and components."
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/fflate@0.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="/static/js/FBXLoader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.0/examples/js/controls/OrbitControls.js"></script>
+    <link
+      href="https://demo.dashboardpack.com/architectui-html-free/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <style>
+        .heading {
+            margin-bottom: 15px;
+        }
+        .exercises {
+            height: 240px; 
+            width: 240px; 
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .reps {
+            height: 100px; 
+            width: 240px; 
+            border-radius: 10px;
+            margin-left: 20px;
+            margin-top: -15px;
+        }
+        .my-card {
+          border: 1px solid #650aff;
+        }
+    </style>
+  </head>
+
+  <body class="active_client">
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      {% include 'header.html' %}
+
+      <div class="app-main">
+        {% include 'sidebar.html' %}
+
+        {% if hasCsvFile %}
+        <div class="app-main__outer d-flex align-items-center justify-content-center">
+            <h4 class="heading">Rehab Status</h4>
+            <div class="my-card mb-3 card d-flex align-items-center justify-content-center" style="height: 80px; width: 20%; border-radius: 10px;">
+                <h5 style="color: red;">Patient</h5>
+            </div>   
+            <h4 class="heading">Recomended Exercises</h4>
+            <div class="d-flex flex-row">
+                <div class="d-flex flex-column">
+                    <div class="my-card exercises mb-3 card d-flex align-items-center justify-content-center">
+                        <h5>Lunges</h5>
+                    </div>
+                    <div class="my-card reps mb-3 card d-flex align-items-center justify-content-center">
+                        <h5 style="color: rgb(24, 109, 255);">3 reps</h5>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="my-card exercises mb-3 card d-flex align-items-center justify-content-center">
+                        <h5>Hammer Curls</h5>
+                    </div>
+                    <div class="my-card reps mb-3 card d-flex align-items-center justify-content-center">
+                        <h5 style="color: rgb(24, 109, 255);">2 reps slow</h5>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="my-card exercises mb-3 card d-flex align-items-center justify-content-center">
+                        <h5>Plank</h5>
+                    </div>
+                    <div class="my-card reps mb-3 card d-flex align-items-center justify-content-center">
+                        <h5 style="color: rgb(24, 109, 255);">30 sec</h5>
+                    </div>
+                </div>
+            </div>   
+              
+        </div>
+        {% else %}
+        <div class="app-main__outer d-flex align-items-center justify-content-center">
+            <div class="my-card mb-3 card d-flex align-items-center justify-content-center" style="height: 180px; width: 40%; border-radius: 10px;">
+                <h6>Upload .csv or .c3d file to view your Rehab status</h6>
+            </div>     
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"
+    ></script>
+  </body>
+</html>

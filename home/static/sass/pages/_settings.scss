@@ -1,0 +1,213 @@
+.user-settings {
+  .user-settings-row {
+    margin-left: -70px;
+    margin-top: -30px;
+
+    @media (max-width: 1023px) {
+      margin-left: -30px;
+    }
+
+    @media (max-width: 767px) {
+      margin-left: -20px;
+      margin-top: -20px;
+    }
+
+    .user-settings-container {
+      width: 50%;
+      max-width: 430px;
+      padding-left: 70px;
+      padding-top: 30px;
+
+      @media (max-width: 1023px) {
+        padding-left: 30px;
+      }
+
+      @media (max-width: 767px) {
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+
+      @media (max-width: 640px) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .settings-block-title {
+      font-family: "poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1;
+      color: $color-1;
+      margin: 0 15px 20px;
+      text-transform: uppercase;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
+    }
+
+    .settings-block {
+      background: $color-11;
+      background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 0.25rem;
+      padding: 20px 10px;
+
+      i {
+        color: $color-1;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+        font-weight: normal;
+
+        @media (max-width: 767px) {
+          font-size: 22px;
+        }
+
+        &.fa-key,
+        &.fa-lock,
+        &.fa-check-circle,
+        &.fa-times-circle {
+          font-weight: 600;
+        }
+      }
+
+      hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1.5px solid $color-1;
+
+        @media (max-width: 767px) {
+          margin-top: 15px;
+          margin-bottom: 15px;
+        }
+      }
+
+      &.left-block {
+        .tabs {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          @media (max-width: 767px) {
+            gap: 15px;
+          }
+
+          .tablinks {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            @include flex-c;
+            gap: 10px;
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 500;
+            color: $color-1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            @media (max-width: 767px) {
+              font-size: 15px;
+            }
+
+            &:hover,
+            &.active {
+              color: $color-1;
+            }
+          }
+        }
+      }
+
+      &.right-block {
+        .settings-block-title {
+          font-size: 16px;
+          color: $color-1;
+
+          @media (max-width: 767px) {
+            font-size: 15px;
+          }
+        }
+
+        .account-settings-form {
+          .input-group {
+            @include flex-sb;
+            align-items: flex-end;
+            margin-bottom: 20px;
+
+            @media (max-width: 767px) {
+              margin-bottom: 15px;
+            }
+
+            .valid-icon {
+              color: $color-1;
+            }
+
+            .invalid-icon {
+              color: $color-1;
+            }
+
+            > i {
+              margin-bottom: 5px;
+            }
+
+            .input-field {
+              display: flex;
+              flex-direction: column;
+              width: 75%;
+              position: relative;
+
+              @media (max-width: 767px) {
+                width: 80%;
+              }
+
+              label {
+                margin: 0;
+                margin-bottom: 5px;
+                font-size: 13px;
+                text-transform: uppercase;
+                font-weight: 500;
+                line-height: 1;
+                color: $color-1;
+
+                @media (max-width: 767px) {
+                  font-size: 12px;
+                }
+              }
+
+              input {
+                background: transparent !important;
+                padding: 10px 30px 10px 20px;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 18px;
+                min-height: 40px;
+                width: 100%;
+                margin: 0;
+                border: 0;
+                border-bottom: 1px solid $color-1;
+                color: $color-1;
+                outline: none !important;
+
+                @media (max-width: 767px) {
+                  padding-left: 15px;
+                }
+              }
+
+              i {
+                position: absolute;
+                cursor: pointer;
+                font-size: 22px;
+                font-weight: 600;
+                right: 0;
+                bottom: 9px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.user-activity {
+  .app-main__inner {
+    .progress-chart-container:not(:first-child) {
+      margin-top: 20px;
+
+      @media (max-width: 767px) {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .progress-chart-name {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    @media (max-width: 767px) {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .progress-chart {
+    background: $color-9;
+    display: flex;
+    padding: 30px 40px;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 767px) {
+      padding: 20px 30px;
+    }
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    .progress-bar-container {
+      display: flex;
+      gap: 10px;
+      width: 80%;
+
+      @media (max-width: 640px) {
+        width: 100%;
+        min-height: 140px;
+      }
+
+      @media (max-width: 424px) {
+        gap: 0;
+        justify-content: space-between;
+      }
+
+      .progress-bar-content {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 424px) {
+          width: 30px;
+        }
+
+        .progress-bar {
+          margin-bottom: 30px;
+          overflow: hidden;
+          height: 100%;
+          position: relative;
+          background: transparent;
+
+          @media (max-width: 767px) {
+            margin-bottom: 15px;
+          }
+
+          .progress-bar-inner {
+            height: 0;
+            background-color: $color-8;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+          }
+        }
+
+        .progress-bar-text {
+          text-align: center;
+          font-size: 14px;
+          color: $color-1;
+
+          @media (max-width: 424px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .circle-chart {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+      color: $color-1;
+
+      @media (max-width: 640px) {
+        gap: 10px;
+      }
+
+      .progress-circle {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background-color: $color-10;
+        padding: 10px;
+
+        @media (max-width: 767px) {
+          width: 120px;
+          height: 120px;
+        }
+
+        .progress-circle-inner {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: $color-2;
+        }
+      }
+
+      .progress-circle-value {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        @media (max-width: 767px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
