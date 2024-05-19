@@ -1,16 +1,11 @@
-import os
-import base64
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = 'service_account.json'
+SERVICE_ACCOUNT_FILE = 'service_account.json'  # Adjust this path if needed
 PARENT_FOLDER_ID = '1mTyg7PBotG4onaZ7RKLEPatTro-EHvSo'
 
 def authenticate():
-    service_account_info = base64.b64decode(os.environ['SERVICE_ACCOUNT_JSON_BASE64'])
-    with open(SERVICE_ACCOUNT_FILE, 'wb') as f:
-        f.write(service_account_info)
     creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     return creds
 
@@ -23,9 +18,12 @@ def upload(file_path):
         'parents': [PARENT_FOLDER_ID]
     }
 
-    file = service.files().create(
+    # Ensure file_path points to the correct location of your file
+    media = MediaFileUpload(file_path, resumable=True)
+
+    file = service.files().create (
         body=file_metadata,
-        media_body=file_path
+        media_body=media
     ).execute()
 
 def list_files():
@@ -42,6 +40,3 @@ def list_files():
         print('Files:')
         for file in files:
             print(f"{file['name']} ({file['id']})")
-
-if __name__ == "__main__":
-    upload("panoramic-technology-banner-with-electronic-devices.jpg")
