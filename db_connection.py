@@ -1,5 +1,7 @@
 import pymongo
-from home.config import mongo_pass
+import os
+
+mongo_pass = os.environ.get('MONGO_PASSWORD')
 
 url = "mongodb+srv://malikshahzaib606:" + mongo_pass + "@fof.shptlgq.mongodb.net/?retryWrites=true&w=majority"
 
