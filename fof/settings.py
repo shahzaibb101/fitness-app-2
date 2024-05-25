@@ -15,6 +15,10 @@ import os
 
 # Retrieve secrets from environment variables
 gmail_pass = os.environ.get('GMAIL_PASS')
+mongo_db_name = os.environ.get('MONGO_DB_NAME')
+mongo_db_host = os.environ.get('MONGO_DB_HOST')
+mongo_db_user = os.environ.get('MONGO_DB_USER')
+mongo_db_password = os.environ.get('MONGO_PASS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,8 +84,14 @@ WSGI_APPLICATION = 'fof.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': mongo_db_name,
+        'CLIENT': {
+            'host': mongo_db_host,
+            'username': mongo_db_user,
+            'password': mongo_db_password,
+            'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
 
