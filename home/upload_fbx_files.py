@@ -3,9 +3,9 @@ from googleapiclient.discovery import build
 import io
 from googleapiclient.http import MediaIoBaseUpload
 from django.http import HttpResponse, JsonResponse
+from fof.settings import service_account
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = '/Users/mac/Desktop/code/django/shyzii/fitness-app/fitness-app/home/service_account.json'
 PARENT_FOLDER_ID = '1mTyg7PBotG4onaZ7RKLEPatTro-EHvSo'  # Replace with your Google Drive folder ID
 
 def authenticate():
