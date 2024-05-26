@@ -43,13 +43,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build \
-          --build-arg GMAIL_PASS=${{ secrets.GMAIL_PASS }} \
-          --build-arg MONGO_DB_NAME=${{ secrets.MONGO_DB_NAME }} \
-          --build-arg MONGO_DB_HOST=${{ secrets.MONGO_DB_HOST }} \
-          --build-arg MONGO_DB_USER=${{ secrets.MONGO_DB_USER }} \
-          --build-arg MONGO_PASS=${{ secrets.MONGO_PASS }} \
-          -t jahanzaibbaig111/fyp .
+        docker build -t jahanzaibbaig111/fyp .
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
