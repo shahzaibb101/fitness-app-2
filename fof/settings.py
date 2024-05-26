@@ -82,14 +82,16 @@ WSGI_APPLICATION = 'fof.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': mongo_db_name,
+        'NAME': os.getenv('MONGO_DB_NAME'),
+        'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': mongo_db_host,
-            'username': mongo_db_user,
-            'password': mongo_db_password,
+            'host': os.getenv('MONGO_DB_HOST'),
+            'username': os.getenv('MONGO_DB_USER'),
+            'password': os.getenv('MONGO_PASS'),
             'authMechanism': 'SCRAM-SHA-1',
         }
     }
