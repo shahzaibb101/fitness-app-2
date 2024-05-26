@@ -3,7 +3,7 @@ from googleapiclient.discovery import build
 import io
 from googleapiclient.http import MediaIoBaseUpload
 from django.http import HttpResponse, JsonResponse
-from fof.settings import service_account
+from fof.settings import SERVICE_ACCOUNT_FILE
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
 PARENT_FOLDER_ID = '1mTyg7PBotG4onaZ7RKLEPatTro-EHvSo'  # Replace with your Google Drive folder ID
