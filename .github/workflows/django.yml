@@ -54,7 +54,7 @@ jobs:
                      --build-arg MONGO_DB_NAME=${{ secrets.MONGO_DB_NAME }} \
                      --build-arg MONGO_DB_HOST=${{ secrets.MONGO_DB_HOST }} \
                      --build-arg MONGO_DB_USER=${{ secrets.MONGO_DB_USER }} \
-                     --build-arg MONGO_DB_PASSWORD=${{ secrets.MONGO_DB_PASSWORD }} \
+                     --build-arg MONGO_PASS=${{ secrets.MONGO_PASS}} \
                      -t jahanzaibbaig111/fyp .
 
     - name: Push Docker image to Docker Hub
