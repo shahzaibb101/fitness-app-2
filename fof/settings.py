@@ -22,6 +22,7 @@ mongo_db_password = os.environ.get('MONGO_PASS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+SERVICE_ACCOUNT_FILE = os.path.join(BASE_DIR, 'home', 'service_account.json')
 
 
 # Quick-start development settings - unsuitable for production
